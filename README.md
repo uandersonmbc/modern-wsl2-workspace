@@ -262,4 +262,4 @@ Você agora tem um **ambiente Linux completo dentro do Windows**, com:
 
 ---
 
-> ✨ Criado por [Uande] — inspirado em boas práticas para desenvolvimento profissional no WSL2.
+> ✨ Criado por [Uanderson] — inspirado em boas práticas para desenvolvimento profissional no WSL2.
