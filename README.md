@@ -8,8 +8,8 @@
 
 Esse setup foi feito para desenvolvedores que desejam:
 
-- Ter um ambiente Linux completo **dentro do Windows** (via WSL2)  
-- Usar **Docker**, **Node.js**, **pnpm/yarn**, **TypeScript**, **Git** e **VS Code** com performance nativa  
+- Ter um ambiente Linux completo **dentro do Windows** (via WSL2)
+- Usar **Docker**, **Node.js**, **pnpm/yarn**, **TypeScript**, **Git** e **VS Code** com performance nativa
 - Manter o sistema organizado e facilmente **reinstalável via snapshot**
 
 ---
@@ -35,6 +35,7 @@ wsl --install -d Ubuntu-24.04
 ```
 
 Se der erro de conexão (por exemplo `0x801901ad`), execute antes:
+
 ```bash
 wsl --update
 wsl --install -d Ubuntu
@@ -85,21 +86,25 @@ nano ~/.zshrc
 ```
 
 Use o tema `powerlevel10k` para um visual moderno:
+
 ```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
 Em `~/.zshrc`, altere:
+
 ```
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ```
 
 Ative plugins úteis:
+
 ```
 plugins=(git docker npm node yarn)
 ```
 
 Recarregue:
+
 ```bash
 source ~/.zshrc
 ```
@@ -115,17 +120,20 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 ```
 
 Carregue o NVM sem reiniciar:
+
 ```bash
 . "$HOME/.nvm/nvm.sh"
 ```
 
 Instale o Node.js LTS:
+
 ```bash
 nvm install 22
 nvm alias default 22
 ```
 
 Verifique:
+
 ```bash
 node -v
 npm -v
@@ -140,6 +148,7 @@ npm install -g yarn pnpm eslint typescript ts-node nodemon
 ```
 
 Verifique:
+
 ```bash
 yarn -v
 pnpm -v
@@ -149,18 +158,20 @@ pnpm -v
 
 ## 🐳 7. Integrar com Docker Desktop
 
-1. Instale o **Docker Desktop** no Windows.  
-2. Vá em **Settings → Resources → WSL Integration**  
+1. Instale o **Docker Desktop** no Windows.
+2. Vá em **Settings → Resources → WSL Integration**
 3. Ative:
-   > ✅ *“Enable integration with my default WSL distro”*  
-   e marque **Ubuntu-24.04**
+   > ✅ _“Enable integration with my default WSL distro”_  
+   > e marque **Ubuntu-24.04**
 
 Teste dentro do Ubuntu:
+
 ```bash
 docker ps
 ```
 
 Se der “permission denied”:
+
 ```bash
 sudo usermod -aG docker $USER
 newgrp docker
@@ -170,8 +181,8 @@ newgrp docker
 
 ## 💻 8. VS Code + WSL
 
-1. Instale o **VS Code** no Windows.  
-2. Instale a extensão **Remote - WSL**.  
+1. Instale o **VS Code** no Windows.
+2. Instale a extensão **Remote - WSL**.
 3. No terminal Ubuntu, abra o projeto:
    ```bash
    code .
@@ -191,25 +202,7 @@ mkdir projects
 cd projects
 ```
 
-💡 Use essa pasta para tudo que for **desenvolvimento**, pois o sistema de arquivos do WSL é muito mais rápido que o `/mnt/c/...`.
-
----
-
-## 🔐 10. Variáveis de ambiente (IA / APIs)
-
-Se for usar ferramentas como **OpenAI** ou **Claude**, adicione ao final do seu `~/.zshrc`:
-
-```bash
-export OPENAI_API_KEY="sua-chave"
-export ANTHROPIC_API_KEY="sua-chave"
-```
-
-Recarregue:
-```bash
-source ~/.zshrc
-```
-
----
+## 💡 Use essa pasta para tudo que for **desenvolvimento**, pois o sistema de arquivos do WSL é muito mais rápido que o `/mnt/c/...`.
 
 ## 💾 11. Backup (Snapshot do ambiente)
 
@@ -234,35 +227,36 @@ wsl --import Ubuntu-24.04-Restore "C:\WSL\UbuntuRestore" C:\Backups\ubuntu24-set
 sudo apt install -y jq httpie tmux gh
 ```
 
-| Ferramenta | Função |
-|-------------|--------|
-| `jq` | Manipular JSON no terminal |
-| `httpie` | Testar APIs com visualização amigável |
-| `tmux` | Sessões persistentes de terminal |
-| `gh` | CLI do GitHub |
+| Ferramenta | Função                                |
+| ---------- | ------------------------------------- |
+| `jq`       | Manipular JSON no terminal            |
+| `httpie`   | Testar APIs com visualização amigável |
+| `tmux`     | Sessões persistentes de terminal      |
+| `gh`       | CLI do GitHub                         |
 
 ---
 
 ## ✅ 13. Checklist final
 
-| Item | Status |
-|------|---------|
-| WSL2 + Ubuntu 24.04 instalado | ✅ |
-| Zsh e Oh My Zsh configurados | ✅ |
-| Node + NVM funcionando | ✅ |
-| Docker integrado ao WSL | ✅ |
-| VS Code conectado ao Ubuntu | ✅ |
-| Pasta `projects` criada | ✅ |
-| Backup (export) testado | ✅ |
+| Item                          | Status |
+| ----------------------------- | ------ |
+| WSL2 + Ubuntu 24.04 instalado | ✅     |
+| Zsh e Oh My Zsh configurados  | ✅     |
+| Node + NVM funcionando        | ✅     |
+| Docker integrado ao WSL       | ✅     |
+| VS Code conectado ao Ubuntu   | ✅     |
+| Pasta `projects` criada       | ✅     |
+| Backup (export) testado       | ✅     |
 
 ---
 
 ## 🧠 Conclusão
 
 Você agora tem um **ambiente Linux completo dentro do Windows**, com:
-- Performance nativa pra Node.js / Docker  
-- Terminal produtivo e bonito  
-- Configuração reprodutível e segura  
+
+- Performance nativa pra Node.js / Docker
+- Terminal produtivo e bonito
+- Configuração reprodutível e segura
 
 💡 Ideal para qualquer stack JavaScript / TypeScript moderna (Next.js, Vite, Express, etc.)
 
